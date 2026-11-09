@@ -1,0 +1,60 @@
+{
+  "name": "dsh-teleagent-skill-builder",
+  "version": "0.1.0",
+  "description": "TeleAgent skill-authoring standard for DeepSeek Harness: installs the teleagent-skill-builder skill (spec, validator, scaffolder, packer, installer) on boot. · 把 TeleAgent 技能制作规范装成 DSH 技能：一条命令产出可直接导入、无 .pyc 的技能包。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "teleagent",
+    "skill",
+    "skill-builder",
+    "skill-authoring"
+  ],
+  "license": "MIT",
+  "author": "yhyc",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caigou114/dsh-teleagent-skill-builder.git"
+  },
+  "homepage": "https://github.com/caigou114/dsh-teleagent-skill-builder#readme",
+  "bugs": {
+    "url": "https://github.com/caigou114/dsh-teleagent-skill-builder/issues"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "tools",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "prepack": "node tools/check-no-pyc.mjs",
+    "check": "node tools/check-no-pyc.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}
